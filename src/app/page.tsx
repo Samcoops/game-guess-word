@@ -10,20 +10,19 @@ export default function Home() {
     const [isGame, setIsGame] = useState<boolean | undefined>(undefined);
 
     const el = useRef(null);
+    let stringsParam: string[] = isGame ? ['Press the button', 'to continue'] : ['Choose a difficulty', 'to start the Game'];
 
     useEffect(() => {
-        if (isGame === false) {
-            const typed = new Typed(el.current, {
-                strings: ['Choose a difficulty', 'to start the Game'],
-                typeSpeed: 100,
-                loop: true,
-                loopCount: Infinity,
-            });
+      const typed = new Typed(el.current, {
+          strings: stringsParam,
+          typeSpeed: 100,
+          loop: true,
+          loopCount: Infinity,
+      });
 
-            return () => {
-                typed.destroy();
-            };
-        }
+      return () => {
+          typed.destroy();
+      };
     }, [isGame]);
 
     useEffect(() => {
@@ -38,7 +37,7 @@ export default function Home() {
     return (
         <main className='h-[calc(100vh-125px)] w-full flex flex-col justify-evenly items-center'>
             <div className='text-7xl text-center font-bold px-5 h-[100px]'>
-                {isGame === false ? <span ref={el} /> : isGame === true ? <span>Game exist</span> : null}
+                <span ref={el} />
             </div>
             <div className='flex lg:flex-row flex-col'>
                 {isGame === false ? (
@@ -49,7 +48,8 @@ export default function Home() {
                     </>
                 ) : isGame === true ? (
                     <>
-                        <Link href={'/game'}>Continue</Link>
+                        <Link className='flex justify-center items-center w-[200px] h-[50px] text-black bg-white rounded-3xl text-xl mx-10 my-10 transition-all duration-200
+                        hover:bg-blue-500 hover:text-white' href={'/game'}>Continue</Link>
                     </>
                 ) : null}
             </div>
