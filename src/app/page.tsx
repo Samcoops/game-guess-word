@@ -1,35 +1,56 @@
-"use client"
-import Button from "@/components/HandleGameButton";
-import Image from "next/image";
-import { useEffect, useRef } from "react";
+'use client';
+
+import HandleGameButton from '@/components/HandleGameButton';
+import cookie from 'cookiejs';
+import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 import Typed from 'typed.js';
 
 export default function Home() {
-  const el = useRef(null);
+    const [isGame, setIsGame] = useState<boolean | undefined>(undefined);
 
-  useEffect(() => {
-    const typed = new Typed(el.current, {
-      strings: ['Choose a difficulty', 'to start the Game'],
-      typeSpeed: 100,
-      loop: true,
-      loopCount: Infinity,
-    });
+    const el = useRef(null);
 
-    return () => {
-      // Destroy Typed instance during cleanup to stop animation
-      typed.destroy();
-    };
-  }, []);
-  return (
-    <main className="h-[calc(100vh-125px)] w-full flex flex-col justify-center items-center">
-        <div className="text-7xl font-bold absolute top-[300px]">
-          <span ref={el} />
-        </div>
-        <div className="flex lg:flex-row flex-col">
-        <Button level="easy"/>
-        <Button level="medium"/>
-        <Button level="hard"/>
-        </div>
-    </main>
-  );
+    useEffect(() => {
+        const typed = new Typed(el.current, {
+            strings: ['Choose a difficulty', 'to start the Game'],
+            typeSpeed: 100,
+            loop: true,
+            loopCount: Infinity,
+        });
+
+        return () => {
+            typed.destroy();
+        };
+    }, []);
+
+    useEffect(() => {
+        const wordIdCookie = cookie.get('word_id');
+        if (wordIdCookie) {
+            setIsGame(true);
+        } else {
+            setIsGame(false);
+        }
+    }, []);
+
+    return (
+        <main className='h-[calc(100vh-125px)] w-full flex flex-col justify-center items-center'>
+            <div className='text-7xl font-bold absolute top-[300px]'>
+                <span ref={el} />
+            </div>
+            <div className='flex lg:flex-row flex-col'>
+                {isGame === false ? (
+                    <>
+                        <HandleGameButton level='easy' />
+                        <HandleGameButton level='medium' />
+                        <HandleGameButton level='hard' />
+                    </>
+                ) : isGame === true ? (
+                    <>
+                        <Link href={'/game'}>Continue</Link>
+                    </>
+                ) : null}
+            </div>
+        </main>
+    );
 }

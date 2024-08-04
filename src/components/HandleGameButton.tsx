@@ -4,7 +4,7 @@ import { tGameLevel } from '@/types';
 import { useRouter } from 'next/navigation';
 import cookie from 'cookiejs';
 
-export default function Button({ level }: { level: tGameLevel }) {
+export default function HandleGameButton({ level }: { level: tGameLevel }) {
     const router = useRouter();
 
     const handleGame = (level: tGameLevel): void => {

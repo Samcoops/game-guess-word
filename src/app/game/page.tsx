@@ -31,7 +31,11 @@ export default function GamePage() {
     useEffect(() => {
         if (wordId || wordId === 0) {
             const wordById = words.find((word) => word.id === wordId);
-            setWord(wordById);
+            if (wordById) {
+                setWord(wordById);
+            } else {
+                setIsGame(false);
+            }
         }
     }, [wordId]);
 
