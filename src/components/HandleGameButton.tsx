@@ -9,15 +9,12 @@ export default function Button({ level }: { level: tGameLevel }) {
 
     const handleGame = (level: tGameLevel): void => {
         const word = getWordToGuess(level);
-        console.log(word);
-        
-        cookie.set('game', 'true');
-        cookie.set('game_word', word.word);
-        cookie.set('game_hints_count', '0');
+        console.log('Game created and added to cookie');
 
+        cookie.set('word_id', word.id.toString());
+        cookie.set('hints_count', '0');
 
         router.push('/game');
-
     };
 
     return (
