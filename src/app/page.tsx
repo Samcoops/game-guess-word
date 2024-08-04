@@ -2,6 +2,10 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div>Our CEO is ihor lox</div>
+    <main>
+
+      <div>Our CEO is ihor lox</div>
+      <div> ne, igor lox</div>
+    </main>
   );
 }
