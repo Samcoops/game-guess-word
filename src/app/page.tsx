@@ -22,7 +22,7 @@ export default function Home() {
   }, []);
   return (
     <main className="h-[calc(100vh-125px)] w-full flex flex-col justify-evenly items-center">
-        <div className="text-7xl text-center font-bold px-5">
+        <div className="text-7xl text-center font-bold px-5 h-[100px]">
           <span ref={el} />
         </div>
         <div className="flex lg:flex-row flex-col p-5">
