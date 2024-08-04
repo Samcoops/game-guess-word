@@ -2,8 +2,7 @@ import { iWord, tGameLevel } from '@/types';
 
 import db from '@/lib/db.json';
 
-export function handleGame(level: tGameLevel): iWord {
-    // const words = db.map((word) => word);
+export function getWordToGuess(level: tGameLevel): iWord {
     const words = (db as iWord[]).map((word) => ({
         id: word.id,
         word: word.word,
@@ -17,7 +16,7 @@ export function handleGame(level: tGameLevel): iWord {
     function getRandomInt(min: number, max: number): number {
         min = Math.ceil(min);
         max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
+        return Math.floor(Math.random() * (max - min)) + min;
     }
 
     const selectedWord = targetWords[getRandomInt(0, targetWords.length)];
