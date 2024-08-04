@@ -19,5 +19,12 @@
         "hints": ["lox", "pidar", "chmo"],
         "keywords": ["xxx", "yyy", "zzz"],
         "level": "easy"
+    },
+    {
+        "id": 4,
+        "word": "Igor",
+        "hints": ["lox", "pidar", "chmo"],
+        "keywords": ["xxx", "yyy", "zzz"],
+        "level": "easy"
     }
 ]
