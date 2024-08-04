@@ -21,17 +21,11 @@ export default function HandleGameButton({ level }: { level: tGameLevel }) {
         <div>
             <button
                 onClick={() => handleGame(level)}
-                className={`flex justify-center items-center w-[200px] h-[50px] text-black bg-white rounded-3xl text-xl mx-10 my-20 transition-all duration-200
-                ${
-                    level === 'easy'
-                        ? 'hover:bg-green-500 hover:text-white'
-                        : level === 'medium'
-                        ? 'hover:bg-yellow-500 hover:text-white'
-                        : level === 'hard'
-                        ? 'hover:bg-red-500 hover:text-white'
-                        : ''
-                }`}
-            >
+                className={`flex justify-center items-center w-[200px] h-[50px] text-black bg-white rounded-3xl text-xl mx-10 my-10 transition-all duration-200
+                ${level === 'easy' ?'hover:bg-green-500 hover:text-white' : 
+                  level === 'medium' ?'hover:bg-yellow-500 hover:text-white' :
+                  level === 'hard' ?'hover:bg-red-500 hover:text-white' : '' 
+                }`}>
                 <span>{level}</span>
             </button>
         </div>
