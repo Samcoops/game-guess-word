@@ -1,6 +1,7 @@
+import { tGameLevel } from '@/types'
 import React from 'react'
 
-export default function Button({text} : {text: string}) {
+export default function Button({text}: {text: tGameLevel}) {
   return (
     <div>
         <button className='w-10 h-10 text-black bg-white'>
