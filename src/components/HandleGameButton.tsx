@@ -2,16 +2,22 @@
 import { getWordToGuess } from '@/lib/functions/getWordToGuess';
 import { tGameLevel } from '@/types';
 import { useRouter } from 'next/navigation';
-import React from 'react';
+import cookie from 'cookiejs';
 
 export default function Button({ level }: { level: tGameLevel }) {
     const router = useRouter();
 
     const handleGame = (level: tGameLevel): void => {
         const word = getWordToGuess(level);
-
-        router.push('/game')
         console.log(word);
+        
+        cookie.set('game', 'true');
+        cookie.set('game_word', word.word);
+        cookie.set('game_hints_count', '0');
+
+
+        router.push('/game');
+
     };
 
     return (
