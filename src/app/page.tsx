@@ -21,11 +21,11 @@ export default function Home() {
     };
   }, []);
   return (
-    <main className="h-[calc(100vh-125px)] w-full flex flex-col justify-center items-center">
-        <div className="text-7xl font-bold absolute top-[300px]">
+    <main className="h-[calc(100vh-125px)] w-full flex flex-col justify-evenly items-center">
+        <div className="text-7xl text-center font-bold px-5">
           <span ref={el} />
         </div>
-        <div className="flex lg:flex-row flex-col">
+        <div className="flex lg:flex-row flex-col p-5">
         <Button level="easy"/>
         <Button level="medium"/>
         <Button level="hard"/>
