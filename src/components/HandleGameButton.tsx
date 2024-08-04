@@ -9,6 +9,8 @@ export default function Button({ level }: { level: tGameLevel }) {
 
     const handleGame = (level: tGameLevel): void => {
         const word = getWordToGuess(level);
+
+        router.push('/game')
         console.log(word);
     };
 
