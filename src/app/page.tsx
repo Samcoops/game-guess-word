@@ -12,17 +12,19 @@ export default function Home() {
     const el = useRef(null);
 
     useEffect(() => {
-        const typed = new Typed(el.current, {
-            strings: ['Choose a difficulty', 'to start the Game'],
-            typeSpeed: 100,
-            loop: true,
-            loopCount: Infinity,
-        });
+        if (isGame === false) {
+            const typed = new Typed(el.current, {
+                strings: ['Choose a difficulty', 'to start the Game'],
+                typeSpeed: 100,
+                loop: true,
+                loopCount: Infinity,
+            });
 
-        return () => {
-            typed.destroy();
-        };
-    }, []);
+            return () => {
+                typed.destroy();
+            };
+        }
+    }, [isGame]);
 
     useEffect(() => {
         const wordIdCookie = cookie.get('word_id');
@@ -36,7 +38,7 @@ export default function Home() {
     return (
         <main className='h-[calc(100vh-125px)] w-full flex flex-col justify-center items-center'>
             <div className='text-7xl font-bold absolute top-[300px]'>
-                <span ref={el} />
+                {isGame === false ? <span ref={el} /> : isGame === true ? <span>Game exist</span> : null}
             </div>
             <div className='flex lg:flex-row flex-col'>
                 {isGame === false ? (
