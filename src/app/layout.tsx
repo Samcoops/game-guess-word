@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Rubik } from "next/font/google";
 import Navbar from "@/components/header/Navbar";
 import "./globals.css";
 import Footer from "@/components/footer/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Rubik({
+  subsets: ["latin"],
+  weight: "500"
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
