@@ -47,7 +47,7 @@ export default function GamePage() {
     }, [word]);
 
     if (isGame === undefined) {
-        return <span>Loading...</span>;
+        return null;
     }
 
     if (!isGame) return <span>No game found</span>;
