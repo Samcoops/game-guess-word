@@ -1,7 +1,23 @@
-{
-    "id": 0,
-    "word": "Pasasin",
-    "hints": ["lox", "pidar", "chmo"],
-    "keywords": ["xxx", "yyy", "zzz"],
-    "level": "hard"
-}
+[
+    {
+        "id": 0,
+        "word": "Pasasin",
+        "hints": ["lox", "pidar", "chmo"],
+        "keywords": ["xxx", "yyy", "zzz"],
+        "level": "hard"
+    },
+    {
+        "id": 1,
+        "word": "Pidar",
+        "hints": ["lox", "pidar", "chmo"],
+        "keywords": ["xxx", "yyy", "zzz"],
+        "level": "easy"
+    },
+    {
+        "id": 2,
+        "word": "Max",
+        "hints": ["lox", "pidar", "chmo"],
+        "keywords": ["xxx", "yyy", "zzz"],
+        "level": "easy"
+    }
+]

@@ -1,4 +1,4 @@
-
+import { handleGame } from '@/lib/functions/handleGame';
 
 export default function GamePage() {
   return (
